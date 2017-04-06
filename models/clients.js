@@ -5,7 +5,7 @@ const ClientSchema = new Schema({
   fullname : String,
   email    : String,
   phone    : Number,
-  dob      : Date,
+  age      : Number,
   sex      : String,
   q1       : String,
   q2       : String,

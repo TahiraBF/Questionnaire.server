@@ -15,7 +15,7 @@ router.post('/', function(req, res) {
     fullname : req.body.fullname,
     email    : req.body.email,
     phone    : req.body.phone,
-    dob      : req.body.dob.formatted,
+    age      : req.body.age,
     sex      : req.body.genOpt,
   });
 
