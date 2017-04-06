@@ -33,10 +33,10 @@ router.post('/', function(req, res) {
 router.put('/assessment', function(req, res) {
   var userId = req.headers.user;
   console.log("user2: ", userId);
-
+  console.log("req: ", req.body );
 
   var q1 = req.body.q1  ;
-  var q2 = req.body.q1  ;
+  var q2 = req.body.q2  ;
   var q3 = req.body.q3  ;
   var q4 = req.body.q4  ;
   var q5 = req.body.q5  ;
@@ -50,6 +50,13 @@ router.put('/assessment', function(req, res) {
   var q13 = req.body.q13 ;
   var q14 = req.body.q14 ;
   var q15 = req.body.q15 ;
+
+  if (q1 === ''  || q2 === ''   || q3 === '' || q4 === '' || q5 === ''  || q6 === ''  || q7 === ''  || q8 === ''  || q9 === ''  || q10 === ''  || q11 === ''  ||
+    q12 === ''  || q13 === ''  || q14 === '' || q15 === ''  ){
+    console.log("some empty fields");
+    res.status(401).json({ message: "Please fill in all of the fields" });
+    return;
+  }
 
   Client.findByIdAndUpdate(userId, {
     q1,
