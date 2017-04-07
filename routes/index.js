@@ -19,6 +19,13 @@ router.post('/', function(req, res) {
     sex      : req.body.genOpt,
   });
 
+  if (!newClient.fullname || !newClient.email|| !newClient.phone){
+    console.log("some empty fields");
+    res.status(401).json({ message: "Please fill in all of the fields" });
+    return;
+  }
+
+
   newClient.save( (err, user) => {
     if(err){
       console.log('error saving new client');
